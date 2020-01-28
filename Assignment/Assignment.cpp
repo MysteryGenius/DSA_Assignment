@@ -6,8 +6,9 @@
 
 using namespace std;
 
-void loadStations() {
+BST loadStations() {
 	// BST store
+	BST stations = BST();
 	ifstream inf;
 	inf.open("csv/Stations.csv");
 	string key, item, line, temp;
@@ -24,8 +25,10 @@ void loadStations() {
 			}
 			else item = temp;
 		}
-		cout << key << '\t' << item << endl;
+		//cout << keyMaker(key) << '\t' << item << endl;
+		stations.insert(key, item);
 	}
+	return stations;
 }
 
 void loadFares() {
@@ -52,6 +55,14 @@ void loadFares() {
 
 int main()
 {
-	//loadStations();
-	loadFares();
+	while (true)
+	{
+		string st;
+		BST stations = loadStations();
+		cout << "Please enter the Station Code : ";
+		getline(cin, st);
+		cout << stations.search(st)->item << endl;
+	}
+
+	//loadFares();
 }

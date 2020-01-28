@@ -1,5 +1,5 @@
 #pragma once
-typedef int ItemType;
+typedef string ItemType;
 #include<string>
 
 struct BinaryNode
