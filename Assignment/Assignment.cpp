@@ -19,7 +19,7 @@ BST loadStations() {
 		bool flag = true;
 		while (getline(s, temp, ','))
 		{
-			if (flag) { 
+			if (flag) {
 				key = temp;
 				flag = false;
 			}
@@ -28,8 +28,23 @@ BST loadStations() {
 		//cout << keyMaker(key) << '\t' << item << endl;
 		stations.insert(key, item);
 	}
+	inf.close();
 	return stations;
 }
+BST loadLine() {
+	BST stations = BST();
+	ifstream inf;
+	inf.open("csv / Routes.csv");
+	string key, item, line, temp;
+	getline(inf, line);
+	stringstream s(line);
+	bool flag = true;
+	while (getline(s, temp, ',')) {
+
+	}
+	inf.close();
+}
+	
 
 void loadFares() {
 	// BST store
