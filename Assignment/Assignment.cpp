@@ -31,8 +31,9 @@ BST loadStations() {
 	return stations;
 }
 
-void loadFares() {
+BST loadFares() {
 	// BST store
+	BST fares = BST();
 	ifstream inf;
 	inf.open("csv/Fares.csv");
 	string key, item, line, temp;
@@ -49,8 +50,9 @@ void loadFares() {
 			}
 			else item = temp;
 		}
-		cout << key << '\t' << item << endl;
+		fares.insert(key, item);
 	}
+	return fares;
 }
 
 int main()
@@ -59,6 +61,7 @@ int main()
 	{
 		string st;
 		BST stations = loadStations();
+		BST fares = loadFares();
 		cout << "Please enter the Station Code : ";
 		getline(cin, st);
 		cout << stations.search(st)->item << endl;
