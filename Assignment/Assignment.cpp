@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "List.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>  
@@ -31,18 +32,22 @@ BST loadStations() {
 	inf.close();
 	return stations;
 }
-BST loadLine() {
-	BST stations = BST();
+List loadLine() {
+	List stations = List();
 	ifstream inf;
-	inf.open("csv / Routes.csv");
+	inf.open("csv/Routes.csv");
 	string key, item, line, temp;
-	getline(inf, line);
-	stringstream s(line);
-	bool flag = true;
-	while (getline(s, temp, ',')) {
-
+	while (inf) {
+		getline(inf, line);
+		stringstream s(line);
+		bool flag = true;
+		while (getline(s, temp, ',')) {
+			key = temp;
+		}
+		stations.add(key);
 	}
 	inf.close();
+	return stations;
 }
 	
 
@@ -74,12 +79,14 @@ int main()
 {
 	while (true)
 	{
-		string st;
-		BST stations = loadStations();
-		BST fares = loadFares();
-		cout << "Please enter the Station Code : ";
-		getline(cin, st);
-		cout << stations.search(st)->item << endl;
+		List stations = loadLine();
+		stations.print();
+		//string st;
+		//BST stations = loadStations();
+		//BST fares = loadFares();
+		//cout << "Please enter the Station Code : ";
+		//getline(cin, st);
+		//cout << stations.search(st)->item << endl;
 	}
 
 	//loadFares();
