@@ -34,20 +34,27 @@ BST loadStations() {
 }
 List loadLine() {
 	List stations = List();
+	List fin = List();
 	ifstream inf;
 	inf.open("csv/Routes.csv");
-	string key, item, line, temp;
+	string key, item, line, temp,st;
 	while (inf) {
 		getline(inf, line);
 		stringstream s(line);
 		bool flag = true;
-		while (getline(s, temp, ',')) {
+		while (getline(s, temp, '\n')) {
 			key = temp;
+			stations.add(key);
 		}
-		stations.add(key);
 	}
 	inf.close();
-	return stations;
+	for (int i=0; i < stations.getLength(); i++) {
+		if (i % 2 == 0) {
+			fin.add(stations.get(i));
+		}
+	}
+	
+	return fin;
 }
 	
 
@@ -77,9 +84,9 @@ BST loadFares() {
 
 int main()
 {
-	while (true)
-	{
+	
 		List stations = loadLine();
+		
 		stations.print();
 		//string st;
 		//BST stations = loadStations();
@@ -87,7 +94,7 @@ int main()
 		//cout << "Please enter the Station Code : ";
 		//getline(cin, st);
 		//cout << stations.search(st)->item << endl;
-	}
+	
 
 	//loadFares();
 }
