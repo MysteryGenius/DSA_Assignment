@@ -1,4 +1,5 @@
 #include "pch.h"
+#include "List.h"
 #include <iostream>
 #include <fstream>
 #include <sstream>  
@@ -19,7 +20,7 @@ BST loadStations() {
 		bool flag = true;
 		while (getline(s, temp, ','))
 		{
-			if (flag) { 
+			if (flag) {
 				key = temp;
 				flag = false;
 			}
@@ -27,8 +28,34 @@ BST loadStations() {
 		}
 		stations.insert(key, item);
 	}
+	inf.close();
 	return stations;
 }
+List loadLine() {
+	List stations = List();
+	List fin = List();
+	ifstream inf;
+	inf.open("csv/Routes.csv");
+	string key, item, line, temp,st;
+	while (inf) {
+		getline(inf, line);
+		stringstream s(line);
+		bool flag = true;
+		while (getline(s, temp, '\n')) {
+			key = temp;
+			stations.add(key);
+		}
+	}
+	inf.close();
+	for (int i=0; i < stations.getLength(); i++) {
+		if (i % 2 == 0) {
+			fin.add(stations.get(i));
+		}
+	}
+	
+	return fin;
+}
+	
 
 BST loadFares() {
 	// BST store
@@ -56,6 +83,7 @@ BST loadFares() {
 
 int main()
 {
+<<<<<<< HEAD
 	while (true)
 	{
 		string st;
@@ -69,6 +97,19 @@ int main()
 			cout << "No Station found" << endl;
 		
 	}
+=======
+	
+		List stations = loadLine();
+		
+		stations.print();
+		//string st;
+		//BST stations = loadStations();
+		//BST fares = loadFares();
+		//cout << "Please enter the Station Code : ";
+		//getline(cin, st);
+		//cout << stations.search(st)->item << endl;
+	
+>>>>>>> a5ebc00cc6bc8775ef3392d04d37083ee7e7d8b8
 
 	//loadFares();
 }
