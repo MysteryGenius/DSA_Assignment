@@ -25,7 +25,6 @@ BST loadStations() {
 			}
 			else item = temp;
 		}
-		//cout << keyMaker(key) << '\t' << item << endl;
 		stations.insert(key, item);
 	}
 	return stations;
@@ -64,7 +63,11 @@ int main()
 		BST fares = loadFares();
 		cout << "Please enter the Station Code : ";
 		getline(cin, st);
-		cout << stations.search(st)->item << endl;
+		if (stations.search(st) != NULL)
+			cout << stations.search(st)->item << endl;
+		else
+			cout << "No Station found" << endl;
+		
 	}
 
 	//loadFares();
