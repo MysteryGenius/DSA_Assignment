@@ -1,17 +1,6 @@
 #include "pch.h"
 #include "List.h"
 
-<<<<<<< HEAD
-
-List::List()
-{
-}
-
-
-List::~List()
-{
-}
-=======
 // constructor
 List::List()
 {
@@ -138,5 +127,3 @@ void List::print()
 	}
 	cout << endl;
 }
-
->>>>>>> a5ebc00cc6bc8775ef3392d04d37083ee7e7d8b8

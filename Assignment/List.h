@@ -1,13 +1,4 @@
 #pragma once
-<<<<<<< HEAD
-class List
-{
-public:
-	List();
-	~List();
-};
-
-=======
 #include<string>
 #include<iostream>
 using namespace std;
@@ -77,4 +68,3 @@ public:
 	// void replace(int index, ItemType item);
 	// int search(ItemType item);
 };
->>>>>>> a5ebc00cc6bc8775ef3392d04d37083ee7e7d8b8

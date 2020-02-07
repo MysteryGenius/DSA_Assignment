@@ -83,7 +83,6 @@ BST loadFares() {
 
 int main()
 {
-<<<<<<< HEAD
 	while (true)
 	{
 		string st;
@@ -95,21 +94,6 @@ int main()
 			cout << stations.search(st)->item << endl;
 		else
 			cout << "No Station found" << endl;
-		
-	}
-=======
-	
-		List stations = loadLine();
-		
-		stations.print();
-		//string st;
-		//BST stations = loadStations();
-		//BST fares = loadFares();
-		//cout << "Please enter the Station Code : ";
-		//getline(cin, st);
-		//cout << stations.search(st)->item << endl;
-	
->>>>>>> a5ebc00cc6bc8775ef3392d04d37083ee7e7d8b8
 
-	//loadFares();
+	}
 }
